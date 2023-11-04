@@ -1,23 +1,57 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
 import './App.css';
 
 function App() {
+  const [expenses, setExpenses] = useState([]);
+  const [loaded, setLoaded] = useState(false); // New state to track if expenses are loaded
+
+  useEffect(() => {
+    if (!loaded) { 
+      console.log("GET request has hit front end");
+      axios
+        .get('http://localhost:8080/expenses')
+        .then((response) => {
+          setExpenses(response.data);
+          setLoaded(true); 
+        })
+        .catch((error) => {
+          console.error('Error fetching expenses:', error);
+        });
+    }
+  }, [loaded]);
+
+  const onDeleteExpense = (expenseId) => {
+    axios
+      .delete(`http://localhost:8080/expenses/${expenseId}`)
+      .then(() => {
+        setExpenses((prevExpenses) =>
+          prevExpenses.filter((expense) => expense._id !== expenseId)
+        );
+      })
+      .catch((error) => {
+        console.error('Error deleting expense:', error);
+      });
+  };
+
+  const onAddExpense = (newExpense) => {
+    axios
+      .post('http://localhost:8080/expenses', newExpense)
+      .then((response) => {
+        setExpenses([...expenses, response.data]);
+      })
+      .catch((error) => {
+        console.error('Error adding expense:', error);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Expense Tracker</h1>
+      <ExpenseForm onAddExpense={onAddExpense} />
+      <ExpenseList expenses={expenses} onDeleteExpense={onDeleteExpense} />
     </div>
   );
 }
