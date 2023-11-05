@@ -37,11 +37,7 @@ router.post('/expenses', async (req, res) => {
       cost: req.body.cost,
       category: req.body.category,
     });
-
-    // Save the new expense to the database
-    const savedExpense = await newExpense.save();
-
-    // Respond with the newly created expense
+    const savedExpense = await newExpense.save(); 
     res.status(201).json(savedExpense);
   } catch (err) {
     console.error('Error adding expense:', err);

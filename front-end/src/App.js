@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
-import './App.css';
+import Header from './components/Header';
+import './styles/App.css';
 
 function App() {
   const [expenses, setExpenses] = useState([]);
-  const [loaded, setLoaded] = useState(false); // New state to track if expenses are loaded
+  const [loaded, setLoaded] = useState(false); 
 
   useEffect(() => {
     if (!loaded) { 
@@ -48,8 +49,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Expense Tracker</h1>
+    <div className="App">
+      <Header />
       <ExpenseForm onAddExpense={onAddExpense} />
       <ExpenseList expenses={expenses} onDeleteExpense={onDeleteExpense} />
     </div>

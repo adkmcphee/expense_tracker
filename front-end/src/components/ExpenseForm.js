@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; 
+import '../styles/ExpenseForm.css';
 
 function ExpenseForm({ onAddExpense }) {
   const [expenseName, setExpenseName] = useState('');
@@ -35,7 +36,7 @@ function ExpenseForm({ onAddExpense }) {
   };
 
   return (
-    <div>
+    <div className="ExpenseForm">
       <h2>Add Expense</h2>
       <form onSubmit={handleFormSubmit}>
         <input

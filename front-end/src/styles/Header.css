@@ -1,0 +1,15 @@
+.Header {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; 
+  font-family: sans-serif; 
+  font-size: 24px; 
+  width: 100%;
+}
+
+
+.Header h1 {
+  font-size: 36px;
+}

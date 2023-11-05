@@ -1,0 +1,10 @@
+.App {
+  background: linear-gradient(135deg, #5712cc, #b014a3);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100vh;
+}
