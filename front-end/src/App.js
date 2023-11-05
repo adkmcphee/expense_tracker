@@ -11,7 +11,6 @@ function App() {
 
   useEffect(() => {
     if (!loaded) { 
-      console.log("GET request has hit front end");
       axios
         .get('http://localhost:8080/expenses')
         .then((response) => {
