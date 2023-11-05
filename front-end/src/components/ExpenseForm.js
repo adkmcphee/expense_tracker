@@ -16,23 +16,11 @@ function ExpenseForm({ onAddExpense }) {
       category: expenseCategory,
     };
 
-    try {
- 
-      const response = await axios.post('http://localhost:8080/expenses', newExpense);
-
-
-      if (response.status === 201) {
-
-        onAddExpense(response.data);
-
-  
+        onAddExpense(newExpense);
         setExpenseName('');
         setExpenseCost('');
         setExpenseCategory('');
-      }
-    } catch (error) {
-      console.error('Error adding expense:', error);
-    }
+
   };
 
   return (

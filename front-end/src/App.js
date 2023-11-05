@@ -10,18 +10,15 @@ function App() {
   const [loaded, setLoaded] = useState(false); 
 
   useEffect(() => {
-    if (!loaded) { 
       axios
         .get('http://localhost:8080/expenses')
         .then((response) => {
           setExpenses(response.data);
-          setLoaded(true); 
         })
         .catch((error) => {
           console.error('Error fetching expenses:', error);
         });
-    }
-  }, [loaded]);
+  }, []);
 
   const onDeleteExpense = (expenseId) => {
     axios
