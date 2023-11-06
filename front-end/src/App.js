@@ -7,7 +7,7 @@ import './styles/App.css';
 
 function App() {
   const [expenses, setExpenses] = useState([]);
-  const [loaded, setLoaded] = useState(false); 
+
 
   useEffect(() => {
       axios
