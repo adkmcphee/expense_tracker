@@ -11,7 +11,7 @@
 ## Backend
 
 1. cd into the back-end/ directory and run `npm install` to install all the backend dependencies
-2. Create a .env file: `expense-tracker/back-end/.env`, and add your preferred port and MONGODB_URI. For example...
+2. Create a .env file: `expense_tracker/back-end/.env`, and add your preferred port and MONGODB_URI. For example...
 
 ```
 MONGODB_URI=mongodb://localhost:27017/expense-tracker
