@@ -24,4 +24,4 @@ PORT=8080
 
 1. cd into the front-end/ directory and run `npm install` to install all the frontend dependencies
 2. From the front-end/ directory, run `npm run start` to start the app in development mode on port 3000
-3. If you aren't automatically directed to the app running on your browswer, navigate to [http://localhost:3000](http://localhost:3000) to interact with the app
+3. If you aren't automatically directed to the app running on your browser, navigate to [http://localhost:3000](http://localhost:3000) to interact with the app
