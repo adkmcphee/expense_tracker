@@ -1,4 +1,4 @@
-# Getting started with Expense Tracker!
+# Beat Your Expenses
 
 1. Clone the project locally
 2. Make sure to have [node](https://nodejs.org/en/download/) version >= 10x installed in your local environment
@@ -17,7 +17,6 @@
 MONGODB_URI=mongodb://localhost:27017/expense-tracker
 PORT=8080
 ```
-
 
 3. From the back-end/ directory, run `npm run start` to start the server on port 8080 and create a connection to the database.
 
