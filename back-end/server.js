@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const PORT = process.env.PORT || 8080;
 
-const Expense = require('./models/expense');
 
 //Set up Express
 const app = express();
@@ -16,7 +15,7 @@ app.use(
 );
 app.use(express.json());
 
-//Connect to database, run initial seed.
+//Connect to database
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -33,7 +32,6 @@ const expenseRouter = require('./routes/expenseRoutes');
 
 //App Routes
 app.use('/', expenseRouter);
-app.use('/:id', expenseRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
